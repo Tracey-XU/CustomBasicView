@@ -74,7 +74,6 @@
 }
 
 #pragma mark - Private Methods
-//点击模糊视图是调用
 
 //点击展开按钮btn_Open调用这个方法
 -(void)openComboxTable:(UIButton *)sender
@@ -83,30 +82,8 @@
     //如果下拉选择表为空，则创建
     if (_comboboxTabel == nil) {
         
-        CGRect frame;
-        //下拉选择表紧跟下面生成
-        frame.origin = CGPointMake(self.frame.origin.x,self.frame.origin.y + self.frame.size.height);
-        
-        //父视图底部到下拉列表的距离，如果大于120，则下拉列表的高度可为120，否则高度则设为这个高度，以免超出
-        float heightLeftInSuperView = [self superview].frame.size.height - self.frame.origin.y - self.frame.size.height;
-        if (heightLeftInSuperView >= 120) {
-            frame.size   = CGSizeMake(self.frame.size.width - self.frame.size.height, 120);
-        }
-        
-        _comboboxTabel = [[UITableView alloc]initWithFrame:frame style:UITableViewStylePlain];
-        _comboboxTabel.dataSource = self;
-        _comboboxTabel.delegate   = self;
-        
-        _comboboxTabel.autoresizingMask = NO;
-        
-        _comboboxTabel.rowHeight = 30;
-        _comboboxTabel.showsVerticalScrollIndicator = NO;
-        _comboboxTabel.backgroundColor = [UIColor lightGrayColor];
-        
-        //添加到父类中
-        [[self superview] addSubview:_comboboxTabel];
-        [self.superview bringSubviewToFront:_comboboxTabel];
-        
+        //加载下拉列表
+        [self initComboboxTable];
         //设定button状态为选择
         _btn_Open.selected = YES;
     } else{
@@ -122,6 +99,35 @@
     }
 }
 
+-(void)initComboboxTable
+{
+    CGRect frame;
+    //下拉选择表紧跟下面生成
+    frame.origin = CGPointMake(self.frame.origin.x,self.frame.origin.y + self.frame.size.height);
+    
+    //父视图底部到下拉列表的距离，如果大于120，则下拉列表的高度可为120，否则高度则设为这个高度，以免超出
+    float heightLeftInSuperView = [self superview].frame.size.height - self.frame.origin.y - self.frame.size.height;
+    if (heightLeftInSuperView >= 120) {
+        frame.size   = CGSizeMake(self.frame.size.width - self.frame.size.height, 120);
+    }
+    else{
+        frame.size   = CGSizeMake(self.frame.size.width - self.frame.size.height, heightLeftInSuperView);
+    }
+    
+    _comboboxTabel = [[UITableView alloc]initWithFrame:frame style:UITableViewStylePlain];
+    _comboboxTabel.dataSource = self;
+    _comboboxTabel.delegate   = self;
+    
+    _comboboxTabel.autoresizingMask = NO;
+    
+    _comboboxTabel.rowHeight = 30;
+    _comboboxTabel.showsVerticalScrollIndicator = NO;
+    _comboboxTabel.backgroundColor = [UIColor lightGrayColor];
+    
+    //添加到父类中
+    [[self superview] addSubview:_comboboxTabel];
+    [self.superview bringSubviewToFront:_comboboxTabel];
+}
 #pragma mark - Public Methods
 
 -(UITableViewCell *)comboboxcellforRow:(NSInteger)row

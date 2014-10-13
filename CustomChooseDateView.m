@@ -14,6 +14,7 @@
 #define kONETHIIRDSHEIGHT   self.frame.size.height / 3    //高度的三分之一
 #define kHALFWIDTH          self.frame.size.width  / 2    //宽度的二分之一
 
+//初始化方法，代理为实现了UIComboboxDelegate的代理方法
 -(CustomChooseDateView *)initWithFrame:(CGRect)frame AndDelegae:(id<UIComboboxDelegate>)delegate
 {
     self = [super initWithFrame:frame];
@@ -23,7 +24,7 @@
         [self initSubViews];
         [self initDimControl];
     }
-
+    
     return self;
 }
 
@@ -34,13 +35,13 @@
     lab_Start.text = @"开始年月";
     _startYear  = [[CustomComboboxView alloc]initWithFrame:CGRectMake(lab_Start.left,lab_Start.bottom + 10, kHALFWIDTH - 20, lab_Start.height)];
     _startMonth = [[CustomComboboxView alloc]initWithFrame:CGRectMake(_startYear.right + 30, _startYear.top, _startYear.width,_startYear.height)];
-
+    
     [self addSubview:lab_Start];
     [self addSubview:_startYear];
     [self addSubview:_startMonth];
     
     //结束时间块
-    UILabel *lab_Stop = [[UILabel alloc]initWithFrame:CGRectMake(lab_Start.left, _startYear.bottom +  5,lab_Start.width, lab_Start.height)];
+    UILabel *lab_Stop = [[UILabel alloc]initWithFrame:CGRectMake(lab_Start.left, _startYear.bottom +  30,lab_Start.width, lab_Start.height)];
     lab_Stop.text = @"结束年月";
     _stopYear  = [[CustomComboboxView alloc]initWithFrame:CGRectMake(lab_Start.left,lab_Stop.bottom + 10, kHALFWIDTH - 20, lab_Stop.height)];
     _stopMonth = [[CustomComboboxView alloc]initWithFrame:CGRectMake(_stopYear.right + 30, _stopYear.top, _stopYear.width,_stopYear.height)];
@@ -70,12 +71,10 @@
     _stopMonth.lab_Detail.text  = @"月";
     
     //设定代理，ChooseDateView调用者实现CustomComboxView的代理
-    _startYear.delegate = self.delegate;
-    _startMonth.delegate = self.delegate;
-    _stopYear.delegate = self.delegate;
-    _stopMonth.delegate = self.delegate;
-
-    
+    _startYear.delegate     = self.delegate;
+    _startMonth.delegate    = self.delegate;
+    _stopYear.delegate      = self.delegate;
+    _stopMonth.delegate     = self.delegate;
 }
 
 //加载模糊视图，展开下拉列表事加载。
@@ -83,8 +82,7 @@
 {
     _dimControl=[[UIControl alloc]initWithFrame:self.bounds];
     _dimControl.hidden=YES;
-    //[_ctrl setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.5]];
-    [_dimControl setBackgroundColor:[UIColor redColor]];
+    [_dimControl setBackgroundColor:[UIColor clearColor]];
     [_dimControl addTarget:self action:@selector(controlAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_dimControl];
 }
@@ -97,25 +95,4 @@
     _dimControl.hidden = YES;
 }
 
-//在代理控制器里实现这个方法，就可以保证一次只能展开一个下拉列表
-/*
--(void)ComboboxTableChangedidhidden:(CustomComboboxView *)combobox
-{
-    if(self.chooseDateView.currentCombobox != combobox)
-    {
-        self.chooseDateView.currentCombobox.comboboxTabel.hidden = YES;
-        self.chooseDateView.currentCombobox = combobox;
-    }
-    if (combobox.comboboxTabel.hidden) {
-        self.chooseDateView.dimControl.hidden = YES;
-    }
-    else
-    {
-        [self.chooseDateView bringSubviewToFront:self.chooseDateView.dimControl];
-        [self.chooseDateView bringSubviewToFront:self.chooseDateView.currentCombobox];
-        [self.chooseDateView bringSubviewToFront:self.chooseDateView.currentCombobox.comboboxTabel];
-        self.chooseDateView.dimControl.hidden = NO;
-    }
-}
-*/
 @end
