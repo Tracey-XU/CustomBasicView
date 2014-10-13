@@ -1,6 +1,6 @@
 //
 //  CustomComboboxView.m
-// 
+//
 //
 //  Created by 许启强 on 14-10-10.
 //  Copyright (c) 2014年 nyqiqiang. All rights reserved.
@@ -71,28 +71,17 @@
     _lab_Detail.textAlignment = NSTextAlignmentCenter;
     [self addSubview:_lab_Detail];
     
-    
-//    NSLog(@"rfrse%@",[self.superview class]);
-//    _ctrl=[[UIView alloc]initWithFrame:CGRectMake(0, 0, 200, 200)];
-//    [_ctrl setBackgroundColor:[UIColor redColor]];
-//    [self.superview addSubview:_ctrl];
-    
 }
+
+#pragma mark - Private Methods
+//点击模糊视图是调用
 
 //点击展开按钮btn_Open调用这个方法
 -(void)openComboxTable:(UIButton *)sender
 {
-    if ([[self superview]respondsToSelector:@selector(setCurrentCombobox:)]) {
-        [self superview]
-        _currentCombobox = self;
-    }
-   
+    
     //如果下拉选择表为空，则创建
     if (_comboboxTabel == nil) {
-        
-        if (_ctrl == nil) {
-            [self initDimControl];
-        }
         
         CGRect frame;
         //下拉选择表紧跟下面生成
@@ -113,43 +102,19 @@
         [[self superview] addSubview:_comboboxTabel];
         [self.superview bringSubviewToFront:_comboboxTabel];
         
-        _currentCombobox = self;
-        
         //设定button状态为选择
         _btn_Open.selected = YES;
-        _ctrl.hidden = NO;
     } else{
         
         //设定下拉选择表的隐藏属性以及button是否选择
         _comboboxTabel.hidden = !_comboboxTabel.hidden;
         _btn_Open.selected = !_btn_Open.selected;
-        _ctrl.hidden = !_ctrl.hidden;
-        _currentCombobox = nil;
         
     }
-}
-
-//加载模糊视图，展开下拉列表事加载。
--(void)initDimControl
-{
-    _ctrl=[[UIControl alloc]initWithFrame:self.superview.bounds];
-    _ctrl.hidden=NO;
-    //[_ctrl setBackgroundColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.5]];
-    [_ctrl setBackgroundColor:[UIColor clearColor]];
-    [_ctrl addTarget:self action:@selector(controlAction) forControlEvents:UIControlEventTouchUpInside];
-    //[self.superview insertSubview:_ctrl belowSubview:self];
-    [self.superview addSubview:_ctrl];
-    [self.superview bringSubviewToFront:self];
-}
-
-
-
-#pragma mark - Private Methods
-//点击模糊视图是调用
--(void)controlAction
-{
-    _currentCombobox.comboboxTabel.hidden = YES;
-    _ctrl.hidden = YES;
+    //如果实现了这个代理方法，则调用
+    if ([self.delegate respondsToSelector:@selector(ComboboxTableChangedidhidden:)]) {
+        [self.delegate ComboboxTableChangedidhidden:self];
+    }
 }
 
 #pragma mark - Public Methods
@@ -187,7 +152,7 @@
     
     //调用者实现代理方法传入NSString类型的内容
     cell.textLabel.text = [self.delegate comboboxView:self contentforRow:indexPath.row];
-
+    
     return cell;
 }
 
