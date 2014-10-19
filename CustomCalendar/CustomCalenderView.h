@@ -15,6 +15,12 @@
 @protocol CustomCalenderViewDelegate <NSObject>
 
 @optional
+/**
+ *  选择日期
+ *
+ *  @param calendar  日历
+ *  @param indexPath 所在indexpath
+ */
 -(void)calendar:(CustomCalenderView *)calendar didSelectItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end
@@ -33,12 +39,26 @@
 
 @property   id<CustomCalenderViewDelegate>delegate;
 
-//返回选中的日期
+/**
+ *  返回选中的日期
+ *
+ *  @return NSDate对象，只保证年月日
+ */
 -(NSDate *)getSelectDate;
-//返回当前日期
+
+/**
+ *  返回今天的日期
+ *
+ *  @return NSDate对象，只保证年月日
+ */
 -(NSDate *)getCurrenteDate;
 
-//返回当前选中的cell
+
+/**
+ *  返回当前选中的cell
+ *
+ *  @return 返回选中的整个cell
+ */
 -(MonthTableCollectionViewCell *)getSelectCell;
 
 @end
