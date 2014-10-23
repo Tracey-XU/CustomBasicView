@@ -10,12 +10,15 @@
 #import "UIView+Custom.h"
 
 @implementation CustomChooseDateView
+{
+    UIButton *_btn_Calculate;
+}
 
 #define kONETHIIRDSHEIGHT   self.frame.size.height / 3    //高度的三分之一
 #define kHALFWIDTH          self.frame.size.width  / 2    //宽度的二分之一
 
-//初始化方法，代理为实现了UIComboboxDelegate的代理方法
--(CustomChooseDateView *)initWithFrame:(CGRect)frame AndDelegae:(id<UIComboboxDelegate>)delegate
+#pragma mark - View Lifecycle
+-(CustomChooseDateView *)initWithFrame:(CGRect)frame AndDelegae:(id<UIComboboxDelegate,CustomChooseDateDelegate>)delegate
 {
     self = [super initWithFrame:frame];
     
@@ -24,10 +27,13 @@
         [self initSubViews];
         [self initDimControl];
     }
-    
+
     return self;
 }
 
+/**
+ *  加载子视图
+ */
 -(void)initSubViews
 {
     //开始时间块
@@ -35,7 +41,7 @@
     lab_Start.text = @"开始年月";
     _startYear  = [[CustomComboboxView alloc]initWithFrame:CGRectMake(lab_Start.left,lab_Start.bottom + 10, kHALFWIDTH - 20, lab_Start.height)];
     _startMonth = [[CustomComboboxView alloc]initWithFrame:CGRectMake(_startYear.right + 30, _startYear.top, _startYear.width,_startYear.height)];
-    
+
     [self addSubview:lab_Start];
     [self addSubview:_startYear];
     [self addSubview:_startMonth];
@@ -53,6 +59,7 @@
     //统计button块
     _btn_Calculate = [UIButton buttonWithType:UIButtonTypeSystem];
     _btn_Calculate.frame = CGRectMake(lab_Start.left, _stopYear.bottom + 20 , lab_Start.width,_startYear.height + 10);
+    [_btn_Calculate addTarget:self action:@selector(calculate_Onclick) forControlEvents:UIControlEventTouchUpInside];
     [_btn_Calculate setTitle:@"累计汇总" forState:UIControlStateNormal];
     _btn_Calculate.backgroundColor = [UIColor orangeColor];
     [_btn_Calculate fillet:_btn_Calculate.height / 2];
@@ -77,7 +84,9 @@
     _stopMonth.delegate     = self.delegate;
 }
 
-//加载模糊视图，展开下拉列表事加载。
+/**
+ *  加载模糊视图，展开下拉列表事加载。
+ */
 -(void)initDimControl
 {
     _dimControl=[[UIControl alloc]initWithFrame:self.bounds];
@@ -88,11 +97,20 @@
 }
 
 #pragma mark - Private Methods
-//点击模糊视图是调用
+/**
+ *  点击模糊视图是调用,改变隐藏属性
+ */
 -(void)controlAction
 {
     _currentCombobox.comboboxTabel.hidden = YES;
     _dimControl.hidden = YES;
 }
 
+/**
+ *  点击累计button调用，然后在这里调用代理方法
+ */
+-(void)calculate_Onclick
+{
+    [self.delegate didCliclCalculateInChooseDateView:self];
+}
 @end

@@ -1,6 +1,6 @@
 //
 //  CustomComboboxView.m
-//
+// 
 //
 //  Created by 许启强 on 14-10-10.
 //  Copyright (c) 2014年 nyqiqiang. All rights reserved.
@@ -22,7 +22,9 @@
     return self;
 }
 
-//放在xib中时调用
+/**
+ *  放在xib中时调用
+ */
 -(void)awakeFromNib
 {
     [super awakeFromNib];
@@ -31,9 +33,9 @@
     }
 }
 
-#pragma mark - Init Methods
-
-//加载子视图
+/**
+ *  加载子视图
+ */
 -(void)initSubViews
 {
     //输入框宽度为下拉表view宽度减去两倍高度（展开按钮和细节标签）,高度同高
@@ -73,9 +75,13 @@
     
 }
 
-#pragma mark - Private Methods
+#pragma mark - Private Combobox Methods
 
-//点击展开按钮btn_Open调用这个方法
+/**
+ *  点击展开按钮btn_Open调用这个方法
+ *
+ *  @param sender 点击的button对象
+ */
 -(void)openComboxTable:(UIButton *)sender
 {
     
@@ -99,6 +105,9 @@
     }
 }
 
+/**
+ *  加载下拉列表
+ */
 -(void)initComboboxTable
 {
     CGRect frame;
@@ -128,22 +137,14 @@
     [[self superview] addSubview:_comboboxTabel];
     [self.superview bringSubviewToFront:_comboboxTabel];
 }
-#pragma mark - Public Methods
 
--(UITableViewCell *)comboboxcellforRow:(NSInteger)row
-{
-    
-    NSIndexPath *indexpath  = [NSIndexPath indexPathForRow:row inSection:0];
-    UITableViewCell *cell   = [self.comboboxTabel cellForRowAtIndexPath:indexpath];
-    return cell;
-}
 
 #pragma mark - UITableView Delagate
 
 //请求下拉列表行数，由调用者实现代理方法
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [self.delegate numberOfRowsInComboboxView];
+    return [self.delegate numberOfRowsInComboboxView:self];
 }
 
 //请求下拉列表每行内容，调用者实现代理方法传入NSString类型的内容
@@ -163,13 +164,27 @@
     
     //调用者实现代理方法传入NSString类型的内容
     cell.textLabel.text = [self.delegate comboboxView:self contentforRow:indexPath.row];
-    
+
     return cell;
 }
 
-//选择某行后的反应，由调用者实现代理方法
+/**
+ *  代理方法，选择某行后调用
+ *
+ *  @param tableView <#tableView description#>
+ *  @param indexPath <#indexPath description#>
+ */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self.delegate comboboxView:self didselectRow:indexPath.row];
+}
+
+#pragma mark - Public Methods
+-(UITableViewCell *)comboboxcellforRow:(NSInteger)row
+{
+    
+    NSIndexPath *indexpath  = [NSIndexPath indexPathForRow:row inSection:0];
+    UITableViewCell *cell   = [self.comboboxTabel cellForRowAtIndexPath:indexpath];
+    return cell;
 }
 @end
