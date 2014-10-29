@@ -1,0 +1,453 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FD618BF21A008DF900FD264F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD618BF11A008DF900FD264F /* main.m */; };
+		FD618BF51A008DF900FD264F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD618BF41A008DF900FD264F /* AppDelegate.m */; };
+		FD618BF81A008DF900FD264F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD618BF71A008DF900FD264F /* ViewController.m */; };
+		FD618BFB1A008DF900FD264F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FD618BF91A008DF900FD264F /* Main.storyboard */; };
+		FD618BFD1A008DF900FD264F /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FD618BFC1A008DF900FD264F /* Images.xcassets */; };
+		FD618C001A008DF900FD264F /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD618BFE1A008DF900FD264F /* LaunchScreen.xib */; };
+		FD618C0C1A008DF900FD264F /* CustomClockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FD618C0B1A008DF900FD264F /* CustomClockTests.m */; };
+		FD618C171A008E2F00FD264F /* CustomClockView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD618C161A008E2F00FD264F /* CustomClockView.m */; };
+		FD618C1B1A00A54E00FD264F /* ClockDialView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD618C1A1A00A54E00FD264F /* ClockDialView.m */; };
+		FD618C1E1A00A5C300FD264F /* ClockCircleView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD618C1D1A00A5C300FD264F /* ClockCircleView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FD618C061A008DF900FD264F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FD618BE41A008DF900FD264F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FD618BEB1A008DF900FD264F;
+			remoteInfo = CustomClock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FD618BEC1A008DF900FD264F /* CustomClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD618BF01A008DF900FD264F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD618BF11A008DF900FD264F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FD618BF31A008DF900FD264F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FD618BF41A008DF900FD264F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FD618BF61A008DF900FD264F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		FD618BF71A008DF900FD264F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		FD618BFA1A008DF900FD264F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FD618BFC1A008DF900FD264F /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FD618BFF1A008DF900FD264F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FD618C051A008DF900FD264F /* CustomClockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CustomClockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD618C0A1A008DF900FD264F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FD618C0B1A008DF900FD264F /* CustomClockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomClockTests.m; sourceTree = "<group>"; };
+		FD618C151A008E2F00FD264F /* CustomClockView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomClockView.h; sourceTree = "<group>"; };
+		FD618C161A008E2F00FD264F /* CustomClockView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomClockView.m; sourceTree = "<group>"; };
+		FD618C191A00A54E00FD264F /* ClockDialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockDialView.h; sourceTree = "<group>"; };
+		FD618C1A1A00A54E00FD264F /* ClockDialView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockDialView.m; sourceTree = "<group>"; };
+		FD618C1C1A00A5C300FD264F /* ClockCircleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClockCircleView.h; sourceTree = "<group>"; };
+		FD618C1D1A00A5C300FD264F /* ClockCircleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClockCircleView.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD618BE91A008DF900FD264F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD618C021A008DF900FD264F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FD618BE31A008DF900FD264F = {
+			isa = PBXGroup;
+			children = (
+				FD618BEE1A008DF900FD264F /* CustomClock */,
+				FD618C081A008DF900FD264F /* CustomClockTests */,
+				FD618BED1A008DF900FD264F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FD618BED1A008DF900FD264F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FD618BEC1A008DF900FD264F /* CustomClock.app */,
+				FD618C051A008DF900FD264F /* CustomClockTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FD618BEE1A008DF900FD264F /* CustomClock */ = {
+			isa = PBXGroup;
+			children = (
+				FD618BF31A008DF900FD264F /* AppDelegate.h */,
+				FD618BF41A008DF900FD264F /* AppDelegate.m */,
+				FD618BF61A008DF900FD264F /* ViewController.h */,
+				FD618BF71A008DF900FD264F /* ViewController.m */,
+				FD618C181A008E3400FD264F /* CloclView */,
+				FD618BF91A008DF900FD264F /* Main.storyboard */,
+				FD618BFC1A008DF900FD264F /* Images.xcassets */,
+				FD618BFE1A008DF900FD264F /* LaunchScreen.xib */,
+				FD618BEF1A008DF900FD264F /* Supporting Files */,
+			);
+			path = CustomClock;
+			sourceTree = "<group>";
+		};
+		FD618BEF1A008DF900FD264F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD618BF01A008DF900FD264F /* Info.plist */,
+				FD618BF11A008DF900FD264F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FD618C081A008DF900FD264F /* CustomClockTests */ = {
+			isa = PBXGroup;
+			children = (
+				FD618C0B1A008DF900FD264F /* CustomClockTests.m */,
+				FD618C091A008DF900FD264F /* Supporting Files */,
+			);
+			path = CustomClockTests;
+			sourceTree = "<group>";
+		};
+		FD618C091A008DF900FD264F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FD618C0A1A008DF900FD264F /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FD618C181A008E3400FD264F /* CloclView */ = {
+			isa = PBXGroup;
+			children = (
+				FD618C151A008E2F00FD264F /* CustomClockView.h */,
+				FD618C161A008E2F00FD264F /* CustomClockView.m */,
+				FD618C191A00A54E00FD264F /* ClockDialView.h */,
+				FD618C1A1A00A54E00FD264F /* ClockDialView.m */,
+				FD618C1C1A00A5C300FD264F /* ClockCircleView.h */,
+				FD618C1D1A00A5C300FD264F /* ClockCircleView.m */,
+			);
+			name = CloclView;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FD618BEB1A008DF900FD264F /* CustomClock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD618C0F1A008DF900FD264F /* Build configuration list for PBXNativeTarget "CustomClock" */;
+			buildPhases = (
+				FD618BE81A008DF900FD264F /* Sources */,
+				FD618BE91A008DF900FD264F /* Frameworks */,
+				FD618BEA1A008DF900FD264F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CustomClock;
+			productName = CustomClock;
+			productReference = FD618BEC1A008DF900FD264F /* CustomClock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FD618C041A008DF900FD264F /* CustomClockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FD618C121A008DF900FD264F /* Build configuration list for PBXNativeTarget "CustomClockTests" */;
+			buildPhases = (
+				FD618C011A008DF900FD264F /* Sources */,
+				FD618C021A008DF900FD264F /* Frameworks */,
+				FD618C031A008DF900FD264F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FD618C071A008DF900FD264F /* PBXTargetDependency */,
+			);
+			name = CustomClockTests;
+			productName = CustomClockTests;
+			productReference = FD618C051A008DF900FD264F /* CustomClockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FD618BE41A008DF900FD264F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = nyqiqiang;
+				TargetAttributes = {
+					FD618BEB1A008DF900FD264F = {
+						CreatedOnToolsVersion = 6.1;
+					};
+					FD618C041A008DF900FD264F = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = FD618BEB1A008DF900FD264F;
+					};
+				};
+			};
+			buildConfigurationList = FD618BE71A008DF900FD264F /* Build configuration list for PBXProject "CustomClock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FD618BE31A008DF900FD264F;
+			productRefGroup = FD618BED1A008DF900FD264F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FD618BEB1A008DF900FD264F /* CustomClock */,
+				FD618C041A008DF900FD264F /* CustomClockTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FD618BEA1A008DF900FD264F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD618BFB1A008DF900FD264F /* Main.storyboard in Resources */,
+				FD618C001A008DF900FD264F /* LaunchScreen.xib in Resources */,
+				FD618BFD1A008DF900FD264F /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD618C031A008DF900FD264F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FD618BE81A008DF900FD264F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD618BF81A008DF900FD264F /* ViewController.m in Sources */,
+				FD618BF51A008DF900FD264F /* AppDelegate.m in Sources */,
+				FD618C1E1A00A5C300FD264F /* ClockCircleView.m in Sources */,
+				FD618C1B1A00A54E00FD264F /* ClockDialView.m in Sources */,
+				FD618C171A008E2F00FD264F /* CustomClockView.m in Sources */,
+				FD618BF21A008DF900FD264F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD618C011A008DF900FD264F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FD618C0C1A008DF900FD264F /* CustomClockTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FD618C071A008DF900FD264F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FD618BEB1A008DF900FD264F /* CustomClock */;
+			targetProxy = FD618C061A008DF900FD264F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FD618BF91A008DF900FD264F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD618BFA1A008DF900FD264F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FD618BFE1A008DF900FD264F /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FD618BFF1A008DF900FD264F /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FD618C0D1A008DF900FD264F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FD618C0E1A008DF900FD264F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FD618C101A008DF900FD264F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CustomClock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FD618C111A008DF900FD264F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = CustomClock/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FD618C131A008DF900FD264F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CustomClockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomClock.app/CustomClock";
+			};
+			name = Debug;
+		};
+		FD618C141A008DF900FD264F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = CustomClockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CustomClock.app/CustomClock";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FD618BE71A008DF900FD264F /* Build configuration list for PBXProject "CustomClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD618C0D1A008DF900FD264F /* Debug */,
+				FD618C0E1A008DF900FD264F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FD618C0F1A008DF900FD264F /* Build configuration list for PBXNativeTarget "CustomClock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD618C101A008DF900FD264F /* Debug */,
+				FD618C111A008DF900FD264F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FD618C121A008DF900FD264F /* Build configuration list for PBXNativeTarget "CustomClockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FD618C131A008DF900FD264F /* Debug */,
+				FD618C141A008DF900FD264F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FD618BE41A008DF900FD264F /* Project object */;
+}
