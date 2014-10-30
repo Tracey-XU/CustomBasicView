@@ -30,6 +30,7 @@
  */
 -(void)setDefaultValues
 {
+    _value = 0;
     _circleRadius  = 15;
     _minValue      = 0;
     _maxValue      = 60;
@@ -52,6 +53,12 @@
     [self setNeedsDisplay];
 }
 
+-(void)setValue:(CGFloat)value
+{
+    _value = value;
+    [self setNeedsDisplay];
+}
+
 #pragma mark - Drawing Method
 
 - (void)drawRect:(CGRect)rect {
@@ -64,6 +71,23 @@
     CGContextAddEllipseInRect(context, CGRectMake(_circleRadius, _circleRadius, CGRectGetWidth(rect)-2*_circleRadius, CGRectGetHeight(rect)-2*_circleRadius));
     CGContextStrokePath(context);
     
+    if (_value == 0 || _value == _maxValue) {
+        CGContextSaveGState(context);
+         CGContextSetLineWidth(context, 1);
+        CGContextSetStrokeColorWithColor(context, [[UIColor redColor]CGColor]);
+        CGContextAddEllipseInRect(context, CGRectMake(_circleRadius, _circleRadius, CGRectGetWidth(rect)-2*_circleRadius, CGRectGetHeight(rect)-2*_circleRadius));
+        CGContextStrokePath(context);
+        CGContextRestoreGState(context);
+    } else {
+        CGContextSaveGState(context);
+        CGContextSetLineWidth(context, 3);
+        CGContextAddArc(context, CGRectGetMidX(rect), CGRectGetMidY(rect), CGRectGetHeight(rect)/2-_circleRadius, radians([self angleWithValue:0]), +radians([self angleWithValue:_value]), 0);
+        NSLog(@"%f",[self angleWithValue:_value]);
+        CGContextStrokePath(context);
+        CGContextRestoreGState(context);
+    }
+
+    
     //画四个时刻圆圈
     for (int i =0; i< _numberOfCircles; i++) {
         ClockCircleView *item = [[ClockCircleView alloc]init];
@@ -74,7 +98,6 @@
         [item clearInnerLine];
         [self addSubview:item];
     }
-
 }
 
 #pragma mark - Private Method
@@ -96,6 +119,11 @@
     CGRect rect = CGRectIntegral(CGRectMake(center.x - _circleRadius, center.y - _circleRadius, size.width, size.height));
     
     return rect;
+}
+
+-(CGFloat)angleWithValue:(NSInteger)value
+{
+    return 270+((CGFloat)value/_maxValue)*360;
 }
 
 @end

@@ -11,9 +11,22 @@
 
 @interface CustomClockView : UIView
 
+#pragma mark -Property
 /**
  *  分钟表盘与时钟表盘间距,默认为10
  */
 @property (nonatomic)CGFloat space;
+
+#pragma mark - Public Methods
+
+/**
+ *  开启时钟，默认开
+ */
+-(void)startClock;
+
+/**
+ *  停止时钟
+ */
+-(void)stopClock;
 
 @end

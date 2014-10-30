@@ -14,6 +14,7 @@
     ClockDialView   *_dialHour;
     ClockDialView   *_dialMinute;
     UILabel         *_labTime;
+    NSTimer         *_clock;
 }
 
 #pragma mark - View Lifecycle
@@ -30,7 +31,7 @@
         
         [self initSubViews];
         
-        [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
+        _clock = [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(updateTime) userInfo:nil repeats:YES];
     }
 
     return self;
@@ -52,12 +53,13 @@
     _dialMinute = [[ClockDialView alloc]initWithFrame:CGRectZero];
     _dialMinute.backgroundColor = [UIColor clearColor];
     _dialMinute.circleRadius = 15;
+    _dialMinute.maxValue = 60;
     [self addSubview:_dialMinute];
     
     _dialHour = [[ClockDialView alloc]initWithFrame:CGRectZero];
     _dialHour.backgroundColor = [UIColor clearColor];
     _dialHour.circleRadius = 10;
-    _dialMinute.maxValue = 12;
+    _dialHour.maxValue = 12;
     [self addSubview:_dialHour];
     
     _labTime = [[UILabel alloc]initWithFrame:CGRectZero];
@@ -73,7 +75,24 @@
     _dialHour.frame  = CGRectMake(2*_dialMinute.circleRadius+_space,2*_dialMinute.circleRadius+_space,CGRectGetWidth(self.frame)- 4*_dialMinute.circleRadius-2*_space, CGRectGetHeight(self.frame)-4*_dialMinute.circleRadius-2*_space);
     _labTime.frame = CGRectMake(CGRectGetMinX(_dialHour.frame)+2*_dialHour.circleRadius, CGRectGetMidY(_dialHour.frame)-15, CGRectGetWidth(self.frame)-4*_dialMinute.circleRadius-4*_dialHour.circleRadius-2*_space, 30);
 }
+#pragma mark - Setter And Getter
 
+
+#pragma mark - Public Methods
+
+-(void)startClock
+{
+    if (_clock) {
+        [_clock setFireDate:[NSDate distantPast]];
+    }
+}
+
+-(void)stopClock
+{
+    if (_clock) {
+        [_clock setFireDate:[NSDate distantFuture]];
+    }
+}
 #pragma mark - Private Methods
 
 -(void)updateTime
@@ -119,6 +138,8 @@
             }
         }
     }
+    _dialHour.value = hour+min/60.0;
+    _dialMinute.value = min;
     _labTime.text = timeString;
 }
 @end
